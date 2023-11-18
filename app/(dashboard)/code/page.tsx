@@ -2,7 +2,7 @@
 
 import * as z from "zod"
 import Heading from "@/components/Heading";
-import {MessageSquareIcon} from "lucide-react";
+import {CodeIcon} from "lucide-react";
 import {useForm} from "react-hook-form";
 import {formSchema} from "@/app/(dashboard)/conversation/constants";
 import {zodResolver} from "@hookform/resolvers/zod";
@@ -19,8 +19,9 @@ import {cn} from "@/lib/utils";
 import UserAvatar from "@/components/UserAvatar";
 import {BotAvatar} from "@/components/BotAvatar";
 // import ChatCompletionMessage = OpenAI.ChatCompletionMessage;
+import ReactMarkdown from "react-markdown"
 
-const Conversation = () => {
+const Code = () => {
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
 
     const router = useRouter()
@@ -39,7 +40,7 @@ const Conversation = () => {
             }
             const newMessages = [...messages, userMessage]
 
-            const response = await axios.post("/api/code", {messages: newMessages})
+            const response = await axios.post("/api/conversation", {messages: newMessages})
             console.log(response.data)
             setMessages((current) => [...current, userMessage, response.data])
 
@@ -51,8 +52,8 @@ const Conversation = () => {
         }
     }
     return <div>
-        <Heading title={"Conversation"} description={"Our most advanced conversation model."} icon={MessageSquareIcon}
-                 iconColor={"text-violet-500"} bgColor={"bg-violet-500/10"}/>
+        <Heading title={"Code Generation"} description={"Generate code using Descriptive text."} icon={CodeIcon}
+                 iconColor={"text-green-700"} bgColor={"bg-green-700/10"}/>
         <div className={`px-4 lg:px-8`}>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}
@@ -61,7 +62,7 @@ const Conversation = () => {
                         <FormControl className={`m-0 p-0`}>
                             <Input
                                 className={`border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent`}
-                                disabled={isLoading} placeholder={"Population on Earth?"} {...field}/>
+                                disabled={isLoading} placeholder={"Center a div in css?"} {...field}/>
                         </FormControl>
                     </FormItem>)}/>
                     <Button className={` col-span-12 lg:col-span-2 w-full`} disabled={isLoading}>Generate</Button>
@@ -76,9 +77,14 @@ const Conversation = () => {
                     {messages.map((message) => <div key={message.content}
                                                     className={cn("p-8 rounded-lg w-full flex items-start gap-x-8", message.role === "user" ? "bg-white border border-black/10" : "bg-muted")}>
                         {message.role === "user" ? <UserAvatar/> : <BotAvatar/>}
-                        <p className={`text-sm `}>
-                            {message.content}
-                        </p>
+                        <ReactMarkdown components={{
+                            pre: ({node, ...props}) => (
+                                <div className={`w-full overflow-auto my-2 bg-black/10 p-2 rounded-lg`}>
+                                    <pre {...props}/>
+                                </div>), code: ({node, ...props}) => (<code className="bg-black/10 rounded-lg p-1" {...props}/>)
+                        }} className={` leading-7 overflow-hidden text-sm`}>
+                            {message.content || ""}
+                        </ReactMarkdown>
                     </div>)}
                 </div>
             </div>
@@ -87,7 +93,7 @@ const Conversation = () => {
     </div>
 }
 
-export default Conversation
+export default Code
 
 
 // I can do a variety of tasks depending on your needs. I can answer questions, provide information, assist with calculations, help with language translation, offer suggestions, and engage in conversations on different topics. Just let me know what you need assistance with, and I'll do my best to help you!
