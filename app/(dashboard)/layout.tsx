@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata = {
-    title: "Threads", description: "A Nextjs 13 threads app made by nikhil ganireddy"
+    title: "AI Fusion Toolbox", description: "A Nextjs 13 AI Saas platform app made by nikhil ganireddy"
 }
 
 const inter = Inter({subsets: ["latin"]})
