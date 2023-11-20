@@ -2,7 +2,10 @@
 
 import * as z from "zod"
 import Heading from "@/components/Heading";
-import {Download, ImageIcon} from "lucide-react";
+import {Download} from "lucide-react";
+// @ts-ignore
+import {UilImageV} from "@iconscout/react-unicons";
+
 import {useForm} from "react-hook-form";
 import {amountOptions, formSchema, resolutionOptions} from "@/app/(dashboard)/image/constants";
 import {zodResolver} from "@hookform/resolvers/zod";
@@ -44,9 +47,9 @@ const ImagePage = () => {
         }
     }
     return <div>
-        <Heading title={"Image Generation"} description={"Turn your prompt to image."} icon={ImageIcon}
-                 iconColor={"text-pink-700"} bgColor={"bg-pink-700/10"}/>
-        <div className={`px-4 lg:px-8`}>
+        <Heading title={"Image Generation"} description={"Turn your prompt to image."} icon={UilImageV}
+                 iconColor={"text-indigo-700"} bgColor={"bg-indigo-700/10"}/>
+        <div className={`px-4 lg:px-8 pb-4`}>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}
                       className={` rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2`}>
@@ -87,7 +90,7 @@ const ImagePage = () => {
                         </Select>
                     </FormItem>)}
                                name={"resolution"} control={form.control}/>
-                    <Button className={` col-span-12 lg:col-span-2 w-full`} disabled={isLoading}>Generate</Button>
+                    <Button className={`bg-indigo-700 col-span-12 lg:col-span-2 w-full`} disabled={isLoading}>Generate</Button>
                 </form>
             </Form>
             <div className={`space-y-4 mt-4`}>

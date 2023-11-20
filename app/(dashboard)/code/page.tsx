@@ -2,7 +2,8 @@
 
 import * as z from "zod"
 import Heading from "@/components/Heading";
-import {CodeIcon} from "lucide-react";
+// @ts-ignore
+import {UilArrow} from "@iconscout/react-unicons";
 import {useForm} from "react-hook-form";
 import {formSchema} from "@/app/(dashboard)/conversation/constants";
 import {zodResolver} from "@hookform/resolvers/zod";
@@ -52,8 +53,8 @@ const Code = () => {
         }
     }
     return <div>
-        <Heading title={"Code Generation"} description={"Generate code using Descriptive text."} icon={CodeIcon}
-                 iconColor={"text-green-700"} bgColor={"bg-green-700/10"}/>
+        <Heading title={"Code Generation"} description={"Generate code using Descriptive text."} icon={UilArrow}
+                 iconColor={"text-indigo-700"} bgColor={"bg-indigo-700/10"}/>
         <div className={`px-4 lg:px-8`}>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}
@@ -65,7 +66,7 @@ const Code = () => {
                                 disabled={isLoading} placeholder={"Center a div in css?"} {...field}/>
                         </FormControl>
                     </FormItem>)}/>
-                    <Button className={` col-span-12 lg:col-span-2 w-full`} disabled={isLoading}>Generate</Button>
+                    <Button className={`bg-indigo-700 col-span-12 lg:col-span-2 w-full`} disabled={isLoading}>Generate</Button>
                 </form>
             </Form>
             <div className={`space-y-4 mt-4`}>

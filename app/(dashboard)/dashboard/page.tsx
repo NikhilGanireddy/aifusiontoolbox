@@ -1,24 +1,26 @@
 "use client"
 
-import {ArrowRightIcon, CodeIcon, ImageIcon, MessageSquareIcon, MusicIcon, VideoIcon} from "lucide-react";
 import {Card} from "@/components/ui/card";
 import {cn} from "@/lib/utils";
 import {useRouter} from "next/navigation";
 
+// @ts-ignore
+import {UilApps, UilArrow, UilCommentAlt, UilImageV, UilMusic, UilSetting, UilVideo,UilArrowRight } from '@iconscout/react-unicons'
+
 const tools = [{
     label: "Conversation",
-    icon: MessageSquareIcon,
-    color: "text-violet-500",
-    bgColor: "bg-violet-500/10",
+    icon: UilCommentAlt,
+    color: "text-indigo-700",
+    bgColor: "bg-indigo-700/10",
     href: "/conversation"
 }, {
-    label: "Image Generation", icon: ImageIcon, color: "text-pink-700", bgColor: "bg-pink-700/10", href: "/image"
+    label: "Image Generation", icon: UilImageV, color: "text-indigo-700", bgColor: "bg-indigo-700/10", href: "/image"
 }, {
-    label: "Video Generation", icon: VideoIcon, color: "text-orange-700", bgColor: "bg-orange-700/10", href: "/video"
+    label: "Video Generation", icon: UilVideo, color: "text-indigo-700", bgColor: "bg-indigo-700/10", href: "/video"
 }, {
-    label: "Music Generation", icon: MusicIcon, color: "text-emerald-500", bgColor: "bg-emerald-500/10", href: "/music"
+    label: "Music Generation", icon: UilMusic, color: "text-indigo-700", bgColor: "bg-indigo-700/10", href: "/music"
 },{
-    label: "Code Generation", icon: CodeIcon, color: "text-green-700", bgColor: "bg-green-700/10", href: "/code"
+    label: "Code Generation", icon: UilArrow, color: "text-indigo-700", bgColor: "bg-indigo-700/10", href: "/code"
 }]
 const Dashboard = () => {
     const router = useRouter()
@@ -41,7 +43,7 @@ const Dashboard = () => {
                         {tool.label}
                     </div>
                 </div>
-                <ArrowRightIcon className={`w-5 h-5 `}/>
+                <UilArrowRight  className={`w-6 h-6 `}/>
             </Card>))}
         </div>
     </div>
