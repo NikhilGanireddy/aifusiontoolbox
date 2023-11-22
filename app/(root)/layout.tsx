@@ -8,7 +8,7 @@ import "../globals.css";
 const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
-    title: "AI Fusion Toolbox", description: "A Nextjs 13 AI Saas platform app made by nikhil ganireddy",
+    title: "AI Fusion", description: "An AI Saas platform made using Nextjs",
 };
 
 export default function RootLayout({

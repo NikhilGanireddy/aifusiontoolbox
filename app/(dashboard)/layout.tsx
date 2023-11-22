@@ -7,7 +7,7 @@ import Sidebar from "@/components/Sidebar";
 import {Syne} from "next/font/google";
 
 export const metadata = {
-    title: "AI Fusion Toolbox", description: "A Nextjs 13 AI Saas platform app made by nikhil ganireddy"
+    title: "AI Fusion", description: "An AI Saas platform made using Nextjs",
 }
 
 // const inter = Inter({subsets: ["latin"]})

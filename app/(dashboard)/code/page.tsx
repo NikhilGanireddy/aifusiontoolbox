@@ -19,7 +19,6 @@ import {Loader} from "@/components/Loader";
 import {cn} from "@/lib/utils";
 import UserAvatar from "@/components/UserAvatar";
 import {BotAvatar} from "@/components/BotAvatar";
-// import ChatCompletionMessage = OpenAI.ChatCompletionMessage;
 import ReactMarkdown from "react-markdown"
 
 const Code = () => {
@@ -66,7 +65,8 @@ const Code = () => {
                                 disabled={isLoading} placeholder={"Center a div in css?"} {...field}/>
                         </FormControl>
                     </FormItem>)}/>
-                    <Button className={`bg-indigo-700 col-span-12 lg:col-span-2 w-full`} disabled={isLoading}>Generate</Button>
+                    <Button className={`bg-indigo-700 col-span-12 lg:col-span-2 w-full`}
+                            disabled={isLoading}>Generate</Button>
                 </form>
             </Form>
             <div className={`space-y-4 mt-4`}>
@@ -82,7 +82,8 @@ const Code = () => {
                             pre: ({node, ...props}) => (
                                 <div className={`w-full overflow-auto my-2 bg-black/10 p-2 rounded-lg`}>
                                     <pre {...props}/>
-                                </div>), code: ({node, ...props}) => (<code className="bg-black/10 rounded-lg p-1" {...props}/>)
+                                </div>),
+                            code: ({node, ...props}) => (<code className="bg-black/10 rounded-lg p-1" {...props}/>)
                         }} className={` leading-7 overflow-hidden text-sm`}>
                             {message.content || ""}
                         </ReactMarkdown>
