@@ -19,8 +19,6 @@ const routes = [{
 }, {
     label: "Video Generation", icon: UilVideo, href: "/video",
 }, {
-    label: "Music Generation", icon: UilMusic, href: "/music",
-}, {
     label: "Code Generation", icon: UilArrow, href: "/code",
 }, {
     label: "Settings", icon: UilSetting, href: "/settings",
@@ -42,7 +40,6 @@ const Sidebar = () => {
                                                  className={cn(`w-full flex justify-start text-base group font-medium cursor-pointer p-3 group hover:text-white hover:bg-indigo-700 rounded-lg transition border-black/5 border`, pathName === route.href ? " text-center text-white bg-indigo-700" : " ")}>
                         <route.icon className={cn("h-6 w-6 mr-3 group-hover:text-white",)}/>
                         {route.label}
-
                     </Link>)}
                 </div>
             </div>

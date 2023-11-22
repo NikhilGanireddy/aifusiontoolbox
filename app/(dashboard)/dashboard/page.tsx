@@ -18,8 +18,6 @@ const tools = [{
 }, {
     label: "Video Generation", icon: UilVideo, color: "text-indigo-700", bgColor: "bg-indigo-700/10", href: "/video"
 }, {
-    label: "Music Generation", icon: UilMusic, color: "text-indigo-700", bgColor: "bg-indigo-700/10", href: "/music"
-},{
     label: "Code Generation", icon: UilArrow, color: "text-indigo-700", bgColor: "bg-indigo-700/10", href: "/code"
 }]
 const Dashboard = () => {
