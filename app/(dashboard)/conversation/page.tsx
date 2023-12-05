@@ -20,7 +20,7 @@ import {Loader} from "@/components/Loader";
 import {cn} from "@/lib/utils";
 import UserAvatar from "@/components/UserAvatar";
 import {BotAvatar} from "@/components/BotAvatar";
-// import ChatCompletionMessage = OpenAI.ChatCompletionMessage;
+
 
 const Conversation = () => {
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
@@ -66,7 +66,8 @@ const Conversation = () => {
                                 disabled={isLoading} placeholder={"Population on Earth?"} {...field}/>
                         </FormControl>
                     </FormItem>)}/>
-                    <Button className={`bg-indigo-700 col-span-12 lg:col-span-2 w-full`} disabled={isLoading}>Generate</Button>
+                    <Button className={`bg-indigo-700 col-span-12 lg:col-span-2 w-full`}
+                            disabled={isLoading}>Generate</Button>
                 </form>
             </Form>
             <div className={`space-y-4 mt-4`}>
@@ -85,7 +86,6 @@ const Conversation = () => {
                 </div>
             </div>
         </div>
-
     </div>
 }
 

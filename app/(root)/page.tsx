@@ -8,12 +8,13 @@ export default function Home() {
     return (<div className={`w-full h-screen flex justify-center items-center flex-col gap-12`}>
         <h1>Landing Page (Unprotected)</h1>
         <div className={`flex flex-col justify-center items-center gap-y-4`}>
-            {useUser()?.user ? <Button><Link href={"/dashboard"}>Go to dashboard</Link></Button> : <>
+            {useUser()?.user ? <Button className={`bg-indigo-700 text-white`}><Link href={"/dashboard"}>Go to
+                dashboard</Link></Button> : <>
                 <Link href={"/sign-in"}>
-                    <Button> Login</Button>
+                    <Button className={`bg-indigo-700 text-white`}> Login</Button>
                 </Link>
                 <Link href={"/sign-up"}>
-                    <Button> Register</Button>
+                    <Button className={`bg-indigo-700 text-white`}> Register</Button>
                 </Link></>}
         </div>
     </div>)
